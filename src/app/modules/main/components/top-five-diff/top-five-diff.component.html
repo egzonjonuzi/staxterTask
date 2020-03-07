@@ -1,0 +1,22 @@
+<div class="mat-elevation-z8">
+    <div class="example-button-row text-center ">
+        <button [ngClass]="{'active-type': diffType===1}"  (click)="getBasedRates(1)" mat-raised-button>Increase</button>
+        <button [ngClass]="{'active-type': diffType===2}" (click)="getBasedRates(2)" mat-raised-button>Decrease</button>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Currency</th>
+            <th>Difference</th>
+            <th>Percentage</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of currencyDiff">
+            <td>{{item.currency}}</td>
+            <td>{{item.difference}}</td>
+            <td>{{item.percentage}} %</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

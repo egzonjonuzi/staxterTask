@@ -1,0 +1,7 @@
+.mat-raised-button{
+    margin: 15px;
+}
+.active-type {
+    background-color: #3f51b5;
+    color: #fff;
+}

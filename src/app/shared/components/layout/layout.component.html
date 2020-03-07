@@ -1,0 +1,70 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Navigation</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item  [routerLink]="['/latest-rates', selectedBase]"  routerLinkActive="active">Latest rates</a>
+      <a mat-list-item  [routerLink]="['/history-chart-rates', selectedBase]" routerLinkActive="active">Last 30 days</a>
+      <a mat-list-item  [routerLink]="['/top-five-diff', selectedBase]" routerLinkActive="active">TOP 5</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="col-md-6">Staxter</span>
+      <div class="col-md-6">
+        <div class="float-right">
+      <mat-label  >Base: </mat-label>
+      <mat-form-field>
+        <mat-select [(value)]="selectedBase" (selectionChange)="onChangeSelectedBase()">
+          <mat-option  value="EUR">EUR</mat-option>
+          <mat-option value="CAD">CAD</mat-option>
+          <mat-option value="HKD">HKD</mat-option>
+          <mat-option value="ISK">ISK</mat-option>
+          <mat-option value="PHP">PHP</mat-option>
+          <mat-option value="DKK">DKK</mat-option>
+          <mat-option value="HUF">HUF</mat-option>
+          <mat-option value="CZK">CZK</mat-option>
+          <mat-option value="AUD">AUD</mat-option>
+          <mat-option value="RON">RON</mat-option>
+          <mat-option value="SEK">SEK</mat-option>
+          <mat-option value="IDR">IDR</mat-option>
+          <mat-option value="INR">INR</mat-option>
+          <mat-option value="BRL">BRL</mat-option>
+          <mat-option value="RUB">RUB</mat-option>
+          <mat-option value="HRK">HRK</mat-option>
+          <mat-option value="JPY">JPY</mat-option>
+          <mat-option value="THB">THB</mat-option>
+          <mat-option value="CHF">CHF</mat-option>
+          <mat-option value="SGD">SGD</mat-option>
+          <mat-option value="PLN">PLN</mat-option>
+          <mat-option value="BGN">BGN</mat-option>
+          <mat-option value="TRY">TRY</mat-option>
+          <mat-option value="CNY">CNY</mat-option>
+          <mat-option value="NOK">NOK</mat-option>
+          <mat-option value="NZD">NZD</mat-option>
+          <mat-option value="ZAR">ZAR</mat-option>
+          <mat-option value="USD">USD</mat-option>
+          <mat-option value="MXN">MXN</mat-option>
+          <mat-option value="ILS">ILS</mat-option>
+          <mat-option value="GBP">GBP</mat-option>
+          <mat-option value="KRW">KRW</mat-option>
+          <mat-option value="MYR">MYR</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+        </div>
+      </div>
+    </mat-toolbar>
+   <router-outlet #myRouterOutlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

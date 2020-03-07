@@ -1,0 +1,23 @@
+<div class="col-md-12" *ngIf="base !== 'EUR'">
+    <div>
+        <div style="display: block; padding: 15px;">
+            <h3 *ngIf="this.activatedRoute.snapshot.params.rowBase !== undefined"> {{base}}</h3>
+            <canvas baseChart
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [plugins]="barChartPlugins"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+            </canvas>
+        </div>
+    </div>
+</div>
+<div class="col-md-12 text-center message" *ngIf="base === 'EUR'">
+<h1 mat-dialog-title>Please note: </h1>
+<div mat-dialog-content>
+    <p>All currencies quoted against the euro (base currency)!</p>
+    <p>For that reason you can't see the Last 30 days rates with EURO as a Base Currency</p>
+    <p>Choose another base to show the result.</p>
+</div>
+</div>
